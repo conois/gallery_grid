@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    padding: 50px;
+    font-family: sans-serif;
+    background: linear-gradient(to bottom, aqua , white );
+    height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 5px 0;
+}
+
+p {
+    margin: 0 0 20px 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: black
+}
+
+.close {
+    background: none;
+    color: black;
+    border: 0;
+}
+
+.overlay {
+    border: 10px solid black;
+    position: fixed;
+    background: rgba(0, 0, 0, .7);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    z-index: 2;
+}
+
+.overlay.open {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.overlay-inner {
+    background: white;
+    width: 700px;
+    padding: 20px;
+}
+
+.overlay img {
+    width: 100%;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-template-rows: repeat(7, 100px);
+    grid-auto-flow: dense; 
+    height: 700px;
+    overflow: hidden;
+
+}
+
+.item {
+    overflow: hidden;
+    display: grid;
+}
+
+.item>img {
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.item.v2 {
+    grid-row: span 2;
+}
+
+.item.v3 {
+    grid-row: span 3;
+}
+
+.item.v4 {
+    grid-row: span 4;
+}
+
+.item.h2 {
+    grid-column: span 2;
+}
+
+.item.h3 {
+    grid-column: span 3;
+}
+
+.item.h4 {
+    grid-column: span 4;
+}
+
+.item__overlay {
+    background: #ffc60032;
+    grid-column: 1/-1;
+    grid-row: 1/-1;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    transform: translateY(100%);
+    transition: 0.2s;
+}
+
+.item:hover .item__overlay {
+    transform: translateY(0)
+}
+
+.item__overlay button {
+    background: none;
+    color: white;
+    border: 2px solid white;
+    padding: 10px;
+}
